@@ -179,16 +179,6 @@ class Message implements MessageInterface, TemplateInterface
     }
 
     /**
-     * Получить дату отправки
-     *
-     * @return DateTimeInterface
-     */
-    public function getSendTime()
-    {
-        return $this->sendTime;
-    }
-
-    /**
      * Статус письма
      *
      * @return string
@@ -196,6 +186,16 @@ class Message implements MessageInterface, TemplateInterface
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Получить дату отправки
+     *
+     * @return DateTimeInterface
+     */
+    public function getSendTime()
+    {
+        return $this->sendTime;
     }
 
     /**

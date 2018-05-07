@@ -4,6 +4,7 @@ namespace CBH\MailSender\Entity;
 
 use CBH\MailSender\ValueObject\Attachment;
 use CBH\MailSender\ValueObject\Receiver;
+use DateTimeInterface;
 
 /**
  * Интерфейс сообщения
@@ -65,6 +66,27 @@ interface MessageInterface
     public function getStatus();
 
     /**
+     * Получить отправителя
+     *
+     * @return Sender
+     */
+    public function getSender();
+
+    /**
+     * Приоритет
+     *
+     * @return int
+     */
+    public function getPriority();
+
+    /**
+     * Получить дату отправки
+     *
+     * @return DateTimeInterface
+     */
+    public function getSendTime();
+
+    /**
      * Получатели
      *
      * @return Receiver[]
@@ -77,4 +99,11 @@ interface MessageInterface
      * @return Attachment[]
      */
     public function getAttachments();
+
+    /**
+     * Получить комментарий
+     *
+     * @return string
+     */
+    public function getComment();
 }
