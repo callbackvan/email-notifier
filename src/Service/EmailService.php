@@ -1,6 +1,6 @@
 <?php
 
-namespace Service;
+namespace CBH\MailSender\Service;
 
 use CBH\MailSender\Entity\MessageInterface;
 use CBH\MailSender\Provider\ProviderInterface;
