@@ -4,6 +4,7 @@ namespace CBH\MailSender\Entity;
 
 use CBH\MailSender\ValueObject\Attachment;
 use CBH\MailSender\ValueObject\Receiver;
+use CBH\MailSender\ValueObject\Sender;
 use DateTimeInterface;
 
 /**
