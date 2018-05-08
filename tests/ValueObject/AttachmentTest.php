@@ -48,7 +48,7 @@ class AttachmentTest extends TestCase
     }
 
     /**
-     * Тест пути
+     * Тест файла
      */
     public function testFile()
     {
