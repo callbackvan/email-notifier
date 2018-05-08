@@ -1,20 +1,35 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace CBH\MailSender\ValueObject;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class ReceiverTest
+ *
+ * @package CBH\MailSender\ValueObject
+ */
 class ReceiverTest extends TestCase
 {
-    /** @var Receiver */
+    /**
+     * Получатель
+     *
+     * @var Receiver
+     */
     private $receiver;
 
-    /** @var string */
+    /**
+     * Тестовый email
+     *
+     * @var string
+     */
     private $address = 'sebastian@phpunit.de';
 
-    /** @var string */
+    /**
+     * Тестовое имя
+     *
+     * @var string
+     */
     private $name = 'Sebastian Bergmann';
 
     /**
@@ -33,6 +48,9 @@ class ReceiverTest extends TestCase
         $this->assertSame($this->address, $this->receiver->getAddress());
     }
 
+    /**
+     * Установка окружения
+     */
     protected function setUp()
     {
         parent::setUp();
