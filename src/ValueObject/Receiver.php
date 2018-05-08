@@ -29,7 +29,7 @@ class Receiver
      * @param string $address
      * @param string $name
      */
-    public function __construct($address, $name)
+    public function __construct($address, $name = null)
     {
         $this->address = $address;
         $this->name    = $name;
