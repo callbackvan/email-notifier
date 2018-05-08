@@ -5,7 +5,7 @@ namespace CBH\MailSender\ValueObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class SenderTest
+ * Тест отправителя
  *
  * @package CBH\MailSender\ValueObject
  */
@@ -23,14 +23,24 @@ class SenderTest extends TestCase
      *
      * @var string
      */
-    private $address = 'sebastian@phpunit.de';
+    private $address = 'some email';
 
     /**
      * Тестовое имя
      *
      * @var string
      */
-    private $name = 'Sebastian Bergmann';
+    private $name = 'some name';
+
+    /**
+     * Установка окружения
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->sender = new Sender($this->address, $this->name);
+    }
 
     /**
      * Тест имени отправителя
@@ -46,15 +56,5 @@ class SenderTest extends TestCase
     public function testAddress()
     {
         $this->assertSame($this->address, $this->sender->getAddress());
-    }
-
-    /**
-     * Установка окружения
-     */
-    protected function setUp()
-    {
-        parent::setUp();
-
-        $this->sender = new Sender($this->address, $this->name);
     }
 }

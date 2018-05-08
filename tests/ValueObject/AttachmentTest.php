@@ -5,7 +5,7 @@ namespace CBH\MailSender\ValueObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class AttachmentTest
+ * Тест прикрепленного файла
  *
  * @package CBH\MailSender\ValueObject
  */
@@ -47,6 +47,16 @@ class AttachmentTest extends TestCase
     private $file = 'testFile';
 
     /**
+     * Установка окружения
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->attachment = new Attachment($this->type, $this->name, $this->encoding, $this->file);
+    }
+
+    /**
      * Тест типа
      */
     public function testType()
@@ -76,15 +86,5 @@ class AttachmentTest extends TestCase
     public function testFile()
     {
         $this->assertSame($this->file, $this->attachment->getFile());
-    }
-
-    /**
-     * Установка окружения
-     */
-    protected function setUp()
-    {
-        parent::setUp();
-
-        $this->attachment = new Attachment($this->type, $this->name, $this->encoding, $this->file);
     }
 }
