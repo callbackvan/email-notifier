@@ -115,7 +115,7 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int) $id;
     }
 
     /**
@@ -135,13 +135,13 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setSubject($subject)
     {
-        $this->subject = $subject;
+        $this->subject = (string) $subject;
     }
 
     /**
      * Тема письма
      *
-     * @return string
+     * @return null|string
      */
     public function getSubject()
     {
@@ -155,7 +155,7 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setMessage($message)
     {
-        $this->message = $message;
+        $this->message = (string) $message;
     }
 
     /**
@@ -175,7 +175,9 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setStatus($status)
     {
-        $this->status = $status;
+        if (in_array($status, self::MESSAGE_STATUS, true)) {
+            $this->status = (string) $status;
+        }
     }
 
     /**
@@ -236,7 +238,7 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setPriority($priority)
     {
-        $this->priority = $priority;
+        $this->priority = (int) $priority;
     }
 
     /**
@@ -245,7 +247,7 @@ class Message implements MessageInterface, TemplateInterface
      * @param string $address
      * @param string $name
      */
-    public function addReceiver($address, $name)
+    public function addReceiver($address, $name = null)
     {
         if (!$this->hasReceiver($address)) {
             $this->receivers[] = new Receiver($address, $name);
@@ -269,7 +271,7 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setComment($comment)
     {
-        $this->comment = $comment;
+        $this->comment = (string) $comment;
     }
 
     /**
@@ -295,11 +297,11 @@ class Message implements MessageInterface, TemplateInterface
     /**
      * Установить название шаблона
      *
-     * @param null|string $templateName
+     * @param string $templateName
      */
     public function setTemplateName($templateName)
     {
-        $this->templateName = $templateName;
+        $this->templateName = (string) $templateName;
     }
 
     /**
@@ -319,7 +321,7 @@ class Message implements MessageInterface, TemplateInterface
      */
     public function setVariables($variables)
     {
-        $this->variables = $variables;
+        $this->variables = array_merge($this->variables, $variables);
     }
 
     /**
